@@ -60,12 +60,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public RecyclerView.LayoutManager setLayoutManager(RecyclerView.LayoutManager defaultLayoutManager) {
-                ((LinearLayoutManager) defaultLayoutManager).setOrientation(LinearLayoutManager.VERTICAL);
+                ((LinearLayoutManager) defaultLayoutManager).setOrientation(LinearLayoutManager.HORIZONTAL);
                 return defaultLayoutManager;
             }
         });
 
         this.richcycler.adapter.setObjectList(getBaseList());
+        this.richcycler.adapter.snap(true);
         this.richcycler.build();
     }
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         List<BaseModel> models = new ArrayList<>();
         for (int i=1;i<10;i++){
             List<InsideModel> insideList = new ArrayList<>();
-            for(int j=1;j<5;j++){
+            for(int j=1;j<50;j++){
                 insideList.add(new InsideModel("Item" + i + "_" +j));
             }
             models.add(new BaseModel(insideList));
